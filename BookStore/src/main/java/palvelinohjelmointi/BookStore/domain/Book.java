@@ -8,6 +8,12 @@ public class Book {
 		
 		public Book() {
 		}
+
+
+		public Book(String title) {
+			super();
+			this.title = title;
+		}
 		
 		
 
