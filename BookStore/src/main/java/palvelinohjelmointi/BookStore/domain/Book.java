@@ -1,5 +1,8 @@
 package palvelinohjelmointi.BookStore.domain;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Book {
 		private String title, author, isbn ;
 		private double price;
