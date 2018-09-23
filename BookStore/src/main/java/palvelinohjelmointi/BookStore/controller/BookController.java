@@ -11,14 +11,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import palvelinohjelmointi.BookStore.domain.Book;
 import palvelinohjelmointi.BookStore.domain.BookRepository;
+import palvelinohjelmointi.BookStore.domain.CategoryRepository;
 
 
 @Controller
 public class BookController {
 	
 	@Autowired
-	private BookRepository repository;
+	private BookRepository bookRepository;
 	
+	@Autowired
+	private CategoryRepository categoryRepository;
 	
 
 
@@ -29,18 +32,20 @@ public class BookController {
 
 @GetMapping("/booklist")
 	public String bookList(Model model) {
-		model.addAttribute("booklist", repository.findAll() );
+		model.addAttribute("booklist", bookRepository.findAll() );
 	return "booklist";
 }
 @GetMapping("/delete/{id}")
 	public String deleteBook(@PathVariable("id") Long bookId, Model model) {
-		repository.deleteById(bookId);
+		bookRepository.deleteById(bookId);
 		return "redirect:../booklist";
 		
 }
 @GetMapping("/edit/{id}")
 public String editBook(@PathVariable("id") Long bookId, Model model){
-	model.addAttribute("book", repository.findById(bookId));
+	model.addAttribute("book", bookRepository.findById(bookId));
+	model.addAttribute("categories", categoryRepository.findAll());
+
 	return "editBook";
 	
 
@@ -50,12 +55,13 @@ public String editBook(@PathVariable("id") Long bookId, Model model){
 @GetMapping("/create")
 	public String createBook(Model model) {
 		model.addAttribute("book",new Book());
+		model.addAttribute("categories", categoryRepository.findAll());
 		return "createBook";
 }
 
 @PostMapping("/save")
 public String saveBook(Book book) {
-		repository.save(book);
+		bookRepository.save(book);
 		return "redirect:booklist";
 }
 }
