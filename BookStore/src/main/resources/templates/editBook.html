@@ -39,13 +39,14 @@
 
 			<div style="clear: both; display: block; height: 10px;"></div>
 				
-				<label for="catelist"> Category:</label>
-			
+				
+			<div style="width:200px">
+			<label for="catelist"> Category:</label>
 			<select id="catelist" th:field="*{category}" class="form-control ">
 				    <option th:each="category: ${categories}" th:value="${category.categoryId }"
 				    th:text="${category.name}"></option>
 			</select>
-
+			</div>
 			
 			<div style="clear: both; display: block; height: 10px;"></div>
 
