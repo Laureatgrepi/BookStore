@@ -36,8 +36,8 @@ public class BookStoreApplication {
 			cateRepository.save(new Category("Draama"));
 			cateRepository.save(new Category("Trilleri"));
 			
-			User user1 = new User("user", "$2y$12$zn.wm7rFBt2ZV.jMzx27BuWXK4ghC0zNC0tfkbBkIAmrIL3R74e/e", "USER");
-			User user2 = new User("admin", "$2y$12$.LIlNICNsx/iK1gmMOVcZeeBdaH3.X1K/cVaP/vdpvBwDKuTOB7RK", "ADMIN");
+			User user1 = new User("user", "$2a$06$3jYRJrg0ghaaypjZ/.g4SethoeA51ph3UD4kZi9oPkeMTpjKU5uo6", "USER");
+			User user2 = new User("admin", "$2a$10$0MMwY.IQqpsVc1jC8u7IJ.2rT8b0Cd3b3sfIBGV2zfgnPGtT4r0.C", "ADMIN");
 			urepository.save(user1);
 			urepository.save(user2);
 			
