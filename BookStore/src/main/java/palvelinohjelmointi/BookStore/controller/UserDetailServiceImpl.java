@@ -1,5 +1,4 @@
 package palvelinohjelmointi.BookStore.controller;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
