@@ -73,6 +73,7 @@ public class BookController {
 	public @ResponseBody List<Book> bookListRest(){
 		return (List<Book>) bookRepository.findAll();
 	}
+	
 	@GetMapping("/book/{id}")
 	public @ResponseBody Optional<Book> findBookById(@PathVariable("id") Long bookId){
 		return bookRepository.findById(bookId);
